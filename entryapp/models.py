@@ -25,5 +25,5 @@ class PastVisitor(models.Model):
 
 @receiver(pre_delete, sender=Visitor, dispatch_uid='visitor_delete_signal')
 def visitor_deleted(sender, instance, using, **kwargs):
-    PastVisitor(name=instance.name, email=instance.email,
+    PastVisitor.objects.create(name=instance.name, email=instance.email,
                     phone_number=instance.phone_number, check_in=instance.check_in)
