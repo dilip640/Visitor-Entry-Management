@@ -1,0 +1,21 @@
+{% extends "entryapp/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Info
+{% endblock %}
+
+{% block content %}
+
+{% if info %}
+<div class="alert alert-success" role="alert">
+    {{ info }}
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+    {{ error }}
+</div>
+{% endif %}
+
+{% endblock %}

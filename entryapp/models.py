@@ -6,20 +6,20 @@ from django.dispatch import receiver
 # Create your models here.
 
 class Host(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, verbose_name='Host Name')
     email = models.EmailField(max_length = 100)
-    phone_number = PhoneNumberField()
+    phone_number = PhoneNumberField(region='IN', verbose_name='Phone')
 
 class Visitor(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length = 100)
-    phone_number = PhoneNumberField()
+    phone_number = PhoneNumberField(region='IN', unique=True, verbose_name='Phone')
     check_in = models.TimeField(auto_now_add=True)
 
 class PastVisitor(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length = 100)
-    phone_number = PhoneNumberField()
+    phone_number = PhoneNumberField(region='IN', verbose_name='Phone')
     check_in = models.TimeField(blank=False)
     check_out = models.TimeField(auto_now_add=True)
 
