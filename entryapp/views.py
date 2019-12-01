@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
+from django.contrib.admin.views.decorators import staff_member_required
 
 from entryapp.forms import CheckInForm, HostForm, CheckOutForm
 from entryapp.models import Host, Visitor, PastVisitor
@@ -36,6 +37,7 @@ def home(request):
                                     {'error': "Please register Host first!"})
     return render(request, 'entryapp/index.html', {'form': form})
 
+@staff_member_required
 def host(request):
     try:
         host = Host.objects.all().first()
@@ -70,7 +72,7 @@ def checkout(request):
                         subject='Visitor Check Out',
                         message=message,
                         from_email=os.environ.get('EMAIL_HOST_USER', ''),
-                        recipient_list=[host.email],
+                        recipient_list=[visitor.email],
                         fail_silently=False,
                 )
                 send_message(host.phone_number.as_e164, message)
