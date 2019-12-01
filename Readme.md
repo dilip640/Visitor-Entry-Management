@@ -1,6 +1,6 @@
 # Visitor Entry Management Software
 
-The software is designed to keep a proper log of the visiters who visit an office. It notifies the host about the visiters via email, and the visitor also gets the info about their visit via an sms and an email.
+The software is designed to keep a proper log of the visiters who visit an office. It notifies the host about the visiters via an e-mail, and the visitor also gets the info about their visit via a SMS and an e-mail.
 
 The problem statement to the content can be found here: https://summergeeks.in/static/assignments/summergeeks%202020%20-%20SDE%20Assignment.pdf
 
@@ -36,6 +36,6 @@ The problem statement to the content can be found here: https://summergeeks.in/s
 
 > To avoid accidental checkouts, the checkout process is facilitated by a verification step wherein the user needs to validate the phone number he provided during checkin.
 
-> Upon verification and successful checkout, the user is notified via an sms about his visit.
+> Upon verification and successful checkout, the user is notified, via a SMS, about his visit.
 
 > Proper messages are displayed in case of validation failures.
